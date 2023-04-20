@@ -19,7 +19,7 @@ public class SecurityConfig {
                         .requestMatchers("/user/list").hasRole("ADMIN")
                         .requestMatchers("/user/create").hasAnyRole("USER","ADMIN")
                         .requestMatchers("/ticket/delete/**").hasRole("ADMIN")
-                        .requestMatchers("/ticket/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/ticket/view").permitAll()
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form

@@ -16,7 +16,9 @@
   <a href="<c:url value="/user" />">Manage User Accounts</a><br /><br />
 </security:authorize>
 
+<security:authorize access="hasAnyRole('USER','ADMIN')">
 <a href="<c:url value="/ticket/create" />">Upload new photo</a><br/><br/>
+</security:authorize>
 <c:choose>
   <c:when test="${fn:length(ticketDatabase) == 0}">
     <i>There are no tickets in the system.</i>
