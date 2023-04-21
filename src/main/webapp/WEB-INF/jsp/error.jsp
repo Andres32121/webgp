@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Customer Support</title>
+  <title>error</title>
 </head>
 <body>
 <c:url var="logoutUrl" value="/logout"/>

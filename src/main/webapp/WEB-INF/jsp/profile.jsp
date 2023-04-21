@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Customer Support</title>
+  <title>profile</title>
 </head>
 <body>
 <c:url var="viewUrl" value="/ticket" />
