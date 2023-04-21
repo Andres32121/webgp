@@ -55,7 +55,7 @@ public class TicketService {
         }
         return attachment;
     }
-/*
+
     @Transactional
     public Comment getComment(long ticketId, UUID attachmentId, String commentId)
             throws TicketNotFound, AttachmentNotFound, CommentNotFound {
@@ -63,17 +63,14 @@ public class TicketService {
         if (ticket == null) {
             throw new TicketNotFound(ticketId);
         }
-        Attachment attachment = aRepo.findById(attachmentId).orElse(null);
-        if (attachment == null) {
-            throw new AttachmentNotFound(attachmentId);
-        }
+
         Comment comment  = cRepo.findById(UUID.fromString(commentId)).orElse(null);
         if (comment == null) {
             throw new CommentNotFound(commentId);
         }
         return comment;
     }
-*/
+
 
 
     @Transactional(rollbackFor = TicketNotFound.class)

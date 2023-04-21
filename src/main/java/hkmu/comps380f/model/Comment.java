@@ -12,7 +12,7 @@ public class Comment {
     @ColumnDefault("random_uuid()")
     private UUID id;
 
-    @Column(name = "filename")
+    @Column(name = "comment")
     private String comment;
 
     @Column(name = "ticket_id", insertable=false, updatable=false)

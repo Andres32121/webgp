@@ -9,6 +9,10 @@
   <input type="submit" value="Log out" />
   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
+<c:url var="viewUrl" value="/ticket" />
+<form action="${viewUrl}" method="get" onsubmit="window.location.reload()">
+  <input type="submit" value="Index page" />
+</form>
 <c:forEach items="${tickets}" var="ticket" varStatus="status">
   <c:if test="${status.first}">
     <h2>User Name: <c:out value="${customerName}"/></h2>

@@ -18,6 +18,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(authorize -> authorize
                             .requestMatchers("/user/list").hasRole("ADMIN")
                         .requestMatchers("/user/create").permitAll()
+                        .requestMatchers("/user").hasRole("ADMIN")
                         .requestMatchers("/ticket/delete/**").hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )
