@@ -67,14 +67,14 @@ public class TicketService {
         if (attachment == null) {
             throw new AttachmentNotFound(attachmentId);
         }
-        Comment comment  = cRepo.findById(commentId).orElse(null);
+        Comment comment  = cRepo.findById(UUID.fromString(commentId)).orElse(null);
         if (comment == null) {
             throw new CommentNotFound(commentId);
         }
         return comment;
     }
+*/
 
- */
 
     @Transactional(rollbackFor = TicketNotFound.class)
     public void delete(long id) throws TicketNotFound {

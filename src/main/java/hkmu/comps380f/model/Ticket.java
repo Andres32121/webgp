@@ -21,6 +21,10 @@ public class Ticket {
             cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch(FetchMode.SUBSELECT)
     private List<Attachment> attachments = new ArrayList<>();
+    //private List<Comment> comments = new ArrayList<>();
+
+
+
 
     // getters and setters of all properties
     public long getId() {
@@ -63,10 +67,19 @@ public class Ticket {
         this.attachments = attachments;
     }
 
+    //public void setComments(List<Comment> comments) {this.comments = comments; }
+
+
+
     public void deleteAttachment(Attachment attachment) {
         attachment.setTicket(null);
         this.attachments.remove(attachment);
     }
+
+    /*public void deleteComment(Comment comment){
+        comment.setTicket(null);
+        this.comments.remove(comments);
+    }*/
 }
 
 

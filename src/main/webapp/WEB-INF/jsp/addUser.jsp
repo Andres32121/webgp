@@ -32,8 +32,12 @@
 
     <form:label path="roles">Roles</form:label><br/>
     <form:errors path="roles" cssClass="error" />
-    <form:checkbox path="roles" value="ROLE_USER"/>ROLE_USER
-    <form:checkbox path="roles" value="ROLE_ADMIN"/>ROLE_ADMIN
+    <form:checkbox path="roles" value="ROLE_USER" checked="checked"/>ROLE_USER
+    <security:authorize access="hasRole('ADMIN')">
+        <form:checkbox path="roles" value="ROLE_ADMIN"/>ROLE_ADMIN
+    </security:authorize>
+
+
     <br/><br/>
     <form:label path="phone">Phone Number</form:label><br/>
     <form:errors path="phone" cssClass="error" />

@@ -4,11 +4,25 @@
   <title>Customer Support</title>
 </head>
 <body>
+
+<security:authorize access="isAuthenticated()" >
 <c:url var="logoutUrl" value="/logout"/>
 <form action="${logoutUrl}" method="post">
   <input type="submit" value="Log out" />
   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
+</security:authorize>
+
+<security:authorize access="!isAuthenticated()">
+  <c:url var="login" value="/login"/>
+<form action="${login}" method="get">
+  <input type="submit" value="Login" />
+</form>
+  <c:url var="create" value="/user/create"/>
+  <form action="${create}" method="get">
+    <input type="submit" value="Create account" />
+  </form>
+</security:authorize>
 
 <h2>Photos</h2>
 

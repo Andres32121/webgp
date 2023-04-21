@@ -35,3 +35,12 @@ CREATE TABLE user_roles (
     FOREIGN KEY (username) REFERENCES users(username)
 );
 
+create table if not exists comment (
+    id uuid default random_uuid() not null,
+    comment varchar(255),
+    ticket_id bigint,
+    primary key (id),
+    foreign key (ticket_id) references ticket
+);
+
+

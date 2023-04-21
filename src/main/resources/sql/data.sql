@@ -8,6 +8,9 @@ INSERT INTO user_roles(username, role) VALUES ('john', 'ROLE_ADMIN');
 INSERT INTO users VALUES ('mary', '{noop}marypw', '12345678', '123@gmail.com', 'hi im mary');
 INSERT INTO user_roles(username, role) VALUES ('mary', 'ROLE_USER');
 
+INSERT INTO users VALUES ('peter', '{noop}peterpw', '12345678', '123@gmail.com', 'hi im mary');
+INSERT INTO user_roles(username, role) VALUES ('peter', 'ROLE_USER');
+
 INSERT INTO users VALUES ('lucas', '{noop}lucaspw', '12345678', '123@gmail.com', 'hi im lucas');
 INSERT INTO user_roles(username, role) VALUES ('lucas', 'ROLE_USER');
 INSERT INTO user_roles(username, role) VALUES ('lucas', 'ROLE_ADMIN');

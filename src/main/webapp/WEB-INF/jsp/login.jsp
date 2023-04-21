@@ -4,6 +4,11 @@
     <title>Customer Support Login</title>
 </head>
 <body>
+<c:url var="viewUrl" value="/ticket" />
+<form action="${viewUrl}" method="get" onsubmit="window.location.reload()">
+    <input type="submit" value="Index page" />
+</form>
+
 <c:if test="${param.error != null}">
     <p>Login failed.</p>
 </c:if>

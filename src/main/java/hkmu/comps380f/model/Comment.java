@@ -15,12 +15,12 @@ public class Comment {
     @Column(name = "filename")
     private String comment;
 
-    @Column(name = "attachment_id", insertable = false, updatable = false)
-    private UUID attachmentId;
+    @Column(name = "ticket_id", insertable=false, updatable=false)
+    private long ticketId;
 
     @ManyToOne
-    @JoinColumn(name = "attachment_id")
-    private Attachment attachment;
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
 
 
     public UUID getId() {
@@ -39,19 +39,19 @@ public class Comment {
         this.comment = comment;
     }
 
-    public UUID getAttachmentId() {
-        return attachmentId;
+    public long getTicketId() {
+        return ticketId;
     }
 
-    public void setAttachmentId(UUID attachmentId) {
-        this.attachmentId = attachmentId;
+    public void setTicketId(long ticketId) {
+        this.ticketId = ticketId;
     }
 
-    public Attachment getAttachment() {
-        return attachment;
+    public Ticket getTicket() {
+        return ticket;
     }
 
-    public void setAttachment(Attachment attachment) {
-        this.attachment = attachment;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

@@ -12,9 +12,10 @@
 
 <h2>Photo #${ticketId}: <c:out value="${ticket.subject}"/></h2>
 
-<security:authorize access="hasRole('ADMIN') or principal.username=='${ticket.customerName}'">
-    [<a href="<c:url value="/ticket/edit/${ticket.id}" />">Edit</a>]
+<security:authorize access="isAuthenticated() and (principal.username == '${ticket.customerName}' or hasRole('ADMIN'))">
+    [<a href="<c:url value='/ticket/edit/${ticket.id}' />">Edit</a>]
 </security:authorize>
+
 <security:authorize access="hasRole('ADMIN')">
     [<a href="<c:url value="/ticket/delete/${ticket.id}" />">Delete</a>]
 </security:authorize>
@@ -32,16 +33,22 @@
         <c:out value="${attachment.name}"/></a>
         -->
         <br/>
+
+        <security:authorize access="isAuthenticated() and (principal.username == '${ticket.customerName}' or hasRole('ADMIN'))">
         [<a href="<c:url value="/ticket/${ticketId}/delete/${attachment.id}" />">Delete photo</a>]
         [<a href="<c:url value="/ticket/comment/${ticket.id}/${attachment.id}" />">Edit Comment</a>]
-
+        </security:authorize>
     </c:forEach><br/><br/>
 </c:if>
 
 Description:
 <c:out value="${ticket.body}"/><br/>
 User <i><a href="<c:url value="/ticket/profile/${ticket.customerName}" />"><c:out value="${ticket.customerName}"/></a></i> uploaded the photo.<br/><br/>
+<br/><br/><br/>
 
+comments:
+
+<br/><br/><br/>
 <a href="<c:url value="/ticket" />">Return to list tickets</a>
 </body>
 </html>

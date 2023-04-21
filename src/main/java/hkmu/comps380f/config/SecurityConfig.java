@@ -14,12 +14,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http)
             throws Exception {
-        http
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/user/list").hasRole("ADMIN")
-                        .requestMatchers("/user/create").hasAnyRole("USER","ADMIN")
+
+        http.authorizeHttpRequests(authorize -> authorize
+                            .requestMatchers("/user/list").hasRole("ADMIN")
+                        .requestMatchers("/user/create").permitAll()
                         .requestMatchers("/ticket/delete/**").hasRole("ADMIN")
-                        .requestMatchers("/ticket/view").permitAll()
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
@@ -27,6 +26,7 @@ public class SecurityConfig {
                         .failureUrl("/login?error")
                         .permitAll()
                 )
+
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
@@ -38,6 +38,7 @@ public class SecurityConfig {
                         .tokenValiditySeconds(86400)
                 )
                 .httpBasic(withDefaults());
+
         return http.build();
     }
 }
