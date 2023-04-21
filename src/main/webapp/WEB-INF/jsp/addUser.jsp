@@ -11,10 +11,9 @@
     </style>
 </head>
 <body>
-<c:url var="logoutUrl" value="/logout"/>
-<form action="${logoutUrl}" method="post">
-    <input type="submit" value="Log out"/>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+<c:url var="viewUrl" value="/ticket" />
+<form action="${viewUrl}" method="get" onsubmit="window.location.reload()">
+    <input type="submit" value="Index page" />
 </form>
 <h2>Create a User</h2>
 <form:form method="POST" modelAttribute="ticketUser">

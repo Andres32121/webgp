@@ -8,7 +8,10 @@
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 <br /><br />
-<a href="<c:url value="/ticket" />">Return to list tickets</a>
+<c:url var="viewUrl" value="/ticket" />
+<form action="${viewUrl}" method="get" onsubmit="window.location.reload()">
+    <input type="submit" value="Index page" />
+</form>
 <h2>Users</h2>
 <a href="<c:url value="/user/create" />">Create a User</a><br /><br />
 <c:choose>

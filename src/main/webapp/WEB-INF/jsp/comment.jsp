@@ -15,7 +15,7 @@
            modelAttribute="ticketForm">
   <form:label path="subject">Subject</form:label><br/>
   <form:input type="text" path="subject" /><br/><br/>
-  <form:label path="body">Comment</form:label><br/>
+  <form:label path="body">Description</form:label><br/>
   <form:textarea path="body" rows="5" cols="30" /><br/><br/>
   <b>Add more attachments</b><br />
   <input type="file" name="attachments" multiple="multiple"/><br/><br/>

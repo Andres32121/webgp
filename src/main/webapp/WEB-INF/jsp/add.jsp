@@ -9,6 +9,10 @@
     <input type="submit" value="Log out" />
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
+<c:url var="viewUrl" value="/ticket" />
+<form action="${viewUrl}" method="get" onsubmit="window.location.reload()">
+    <input type="submit" value="Index page" />
+</form>
 
 <h2>Uploaded new photo</h2>
 <form:form method="POST" enctype="multipart/form-data" modelAttribute="ticketForm">

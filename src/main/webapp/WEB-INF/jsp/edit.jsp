@@ -9,7 +9,7 @@
     <input type="submit" value="Log out" />
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
-<h2>Edit Ticket #${ticket.id}</h2>
+<h2>Edit Photo #${ticket.id}</h2>
 <form:form method="POST" enctype="multipart/form-data"
            modelAttribute="ticketForm">
     <form:label path="subject">Subject</form:label><br/>
